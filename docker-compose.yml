@@ -1,0 +1,35 @@
+version: '2.2'
+
+services:
+
+  app-ui:
+    image: dmk0062/media-storage-ui:1.0
+    build: ./ui
+    restart: always
+    ports:
+      - 4200:4200
+
+  storage-service:
+    image: dmk0062/media-storage-service:1.0
+    build: ./storage-service
+    container_name: storage-service
+    ports:
+      - 8080:8080
+
+  mongo:
+    image: mongo:4.0
+    restart: always
+    container_name: mongo
+#    network_mode: host
+#    hostname: localhost
+    ports:
+      - 27017:27017
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    depends_on :
+      - mongo
+    ports:
+      - 8081:8081
+    

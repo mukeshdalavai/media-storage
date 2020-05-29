@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Create {{data.type}}</h1>
+<div mat-dialog-content>
+        <mat-form-field *ngIf="!file">
+            <mat-label>Name</mat-label>
+            <input type="text" matInput [(ngModel)]="name">
+          </mat-form-field>
+          <!-- <mat-form-field *ngIf="file">
+            <mat-label>Name</mat-label>
+            <input type="file" matInput>
+          </mat-form-field> -->
+    <div *ngIf = "file">
+        <form [formGroup] = "uploadForm">      
+            <input type="file" name="file" (change)="onFileSelect($event)" />
+        </form>
+      </div>
+    
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="create()">Ok</button>
+</div>
