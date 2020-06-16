@@ -3,15 +3,15 @@ version: '2.2'
 services:
 
   app-ui:
-    image: dmk0062/media-storage-ui:1.0
-    # build: ./ui
+    image: ui:1.0
+    build: ./ui
     restart: always
     ports:
       - 80:80
 
   storage-service:
-    image: dmk0062/media-storage-service:1.0
-    # build: ./storage-service
+    image: storage-service:1.0
+    build: ./storage-service
     container_name: storage-service
     hostname: storage-service
     ports:
