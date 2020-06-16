@@ -23,6 +23,7 @@ router.get('/',(req, res) => {
 });
 
 router.get('/folder', (req, res) =>{
+    
     db.Folder.findOne({name : 'base'}).then((doc) => {
         let locs = (req.query.path).split('/');
         let data = doc;

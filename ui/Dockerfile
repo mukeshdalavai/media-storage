@@ -12,5 +12,5 @@ RUN npm run build
 
 WORKDIR  /app/dist/ui
 
-ENTRYPOINT ["http-server", "-c1", "-p", "4200"]
+ENTRYPOINT ["http-server", "-c1", "-p", "80"]
 

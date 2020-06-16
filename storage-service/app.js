@@ -4,9 +4,10 @@ const cors = require('cors');
 const service = require('./service');
 const app = express();
 
-
+env.config();
 app.use(express.json());
 app.use(cors());
+
 
 app.use('/',service.router);
 

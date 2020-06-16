@@ -4,15 +4,16 @@ services:
 
   app-ui:
     image: dmk0062/media-storage-ui:1.0
-    build: ./ui
+    # build: ./ui
     restart: always
     ports:
-      - 4200:4200
+      - 80:80
 
   storage-service:
     image: dmk0062/media-storage-service:1.0
-    build: ./storage-service
+    # build: ./storage-service
     container_name: storage-service
+    hostname: storage-service
     ports:
       - 8080:8080
 
